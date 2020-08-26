@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  mysqlsrv:
+    image: mysql:8.0.21
+    environment:
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: zup123
+      MYSQL_DATABASE: dados_db
+    ports:
+      - "3306:3306"
+    volumes:
+      - /home/zup/Documentos/environment/docker/mysql:/var/lib/mysql
+    networks:
+      - mysql-compose-network
+
+  adminer:
+    image: adminer
+    ports:
+      - 5000:8080
+    networks:
+      - mysql-compose-network
+
+networks:
+  mysql-compose-network:
+    driver: bridge
