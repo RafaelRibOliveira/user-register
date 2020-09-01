@@ -9,4 +9,7 @@ class UserService(private val userRepository: UserRepository) {
     fun save(user: User): User{
         return this.userRepository.save(user)
     }
+    fun finById(id: Long): User {
+        return this.userRepository.findById(id).orElseThrow()
+    }
 }

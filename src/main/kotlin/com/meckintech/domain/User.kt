@@ -7,5 +7,8 @@ import javax.persistence.*
 class User (
         @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
         var id : Long,
-        var name : String
+        var name : String,
+
+        @OneToOne
+        var address: Address
 )

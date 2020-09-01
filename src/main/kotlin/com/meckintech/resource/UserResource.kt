@@ -13,4 +13,9 @@ class UserResource(private val userService: UserService) {
     fun save(@RequestBody user : User): User{
         return this.userService.save(user)
     }
+    @GetMapping("/{id}")
+    fun findById(@PathVariable id: Long): User{
+        return this.userService.finById(id)
+    }
+
 }
